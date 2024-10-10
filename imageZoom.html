@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Zoom on Click</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .image-container {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            margin: 50px auto;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease; /* Smooth zooming effect */
+        }
+
+        /* Zoomed In State */
+        .zoomed {
+            transform: scale(1.5); /* Increase the scale to 1.5x when zoomed */
+        }
+
+        /* Fullscreen zoom overlay */
+        .zoom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8); /* Dark background */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .zoom-overlay img {
+            width: auto;
+            height: 80%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container" id="imageContainer">
+    <img src="/photo/product10.jpg" alt="Image" id="image">
+</div>
+
+<!-- Fullscreen Zoom Overlay -->
+<div class="zoom-overlay" id="zoomOverlay">
+    <img src="/photo/product10.jpg" alt="Zoomed Image" id="zoomedImage">
+</div>
+
+<script>
+    const imageContainer = document.getElementById('imageContainer');
+    const image = document.getElementById('image');
+    const zoomOverlay = document.getElementById('zoomOverlay');
+    const zoomedImage = document.getElementById('zoomedImage');
+
+    // Toggle Zoom on Click
+    imageContainer.addEventListener('click', function() {
+        // Toggle fullscreen overlay
+        zoomOverlay.style.display = 'flex';
+    });
+
+    // Close the zoom overlay on click
+    zoomOverlay.addEventListener('click', function() {
+        zoomOverlay.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

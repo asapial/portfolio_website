@@ -1,359 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Albert Bill Jukerberg - Web Designer Resume</title>
-    <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Image Rotation</title>
+  <style>
+    /* General body styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7d8c8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            overflow-x: hidden;
-        }
+    .container {
+      width: 1000px;
+      height: 600px;
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
-            animation: fadeInUp 1s ease-in-out;
-        }
+    /* Left side content */
+    .left-content {
+      width: 50%;
+      padding-left: 40px;
+    }
 
-        .container:hover {
-            transform: scale(1.02);
-        }
+    .left-content h1 {
+      font-size: 48px;
+      color: #d45a93;
+      margin: 0;
+    }
 
-        /* Profile Section */
-        .profile {
-            text-align: center;
-            margin-bottom: 30px;
-            animation: fadeIn 1.5s ease;
-        }
+    .left-content p {
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #b2957d;
+    }
 
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 5px solid #0077b6;
-            animation: bounceIn 2s ease;
-        }
+    /* Button styling */
+    .buy-now-btn {
+      background-color: #bfa071;
+      border: none;
+      color: white;
+      font-size: 18px;
+      padding: 15px 30px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #0077b6;
-        }
+    /* Middle image */
+    .middle-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: transform 1s ease-in-out;
+    }
 
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #888;
-        }
+    .middle-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        p {
-            color: #666;
-            font-size: 1rem;
-        }
+    /* Right side image section (rotating images) */
+    .right-images {
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            background-color: #0077b6;
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 30px;
-            animation: fadeInDown 1s ease-in;
-        }
+    .right-images img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
 
-        .navbar a {
-            color: white;
-            font-weight: 500;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease-in-out;
-        }
+    /* Additional styling */
+    .label {
+      background-color: #fff;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 14px;
+      color: #7c7c7c;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      z-index: 2;
+    }
 
-        .navbar a:hover {
-            background-color: #00b4d8;
-        }
+    /* Label position styling */
+    .label1 {
+      top: 40px;
+      left: 220px;
+    }
 
-        /* Section */
-        .section {
-            margin-bottom: 30px;
-        }
+    .label2 {
+      top: 150px;
+      left: 300px;
+    }
 
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #0077b6;
-            display: inline-block;
-            padding-bottom: 5px;
-            color: #333;
-            position: relative;
-            animation: slideInLeft 1.2s ease;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            font-size: 1.1rem;
-            background-color: #f1f9ff;
-            margin-bottom: 10px;
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 0.8s ease;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #0077b6;
-            color: white;
-        }
-
-        td {
-            background-color: #f1f9ff;
-            font-size: 1.1rem;
-        }
-
-        /* Contact Form */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        form label {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #333;
-        }
-
-        form input, form textarea {
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            background-color: #f9f9f9;
-            transition: border 0.3s ease-in-out;
-        }
-
-        form input:focus, form textarea:focus {
-            border-color: #0077b6;
-            background-color: white;
-        }
-
-        form button {
-            padding: 12px;
-            background-color: #0077b6;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out, transform 0.3s ease;
-        }
-
-        form button:hover {
-            background-color: #00b4d8;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #888;
-            font-size: 0.9rem;
-            animation: fadeInUp 1s ease-in;
-        }
-
-        footer p {
-            margin-top: 20px;
-        }
-
-        /* Keyframe Animations */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes bounceIn {
-            0%, 100% {
-                transform: scale(0.9);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Profile Section -->
-        <div class="profile">
-            <img src="/photo/profile_pic_512.jpg" alt="Profile Image" class="profile-img">
-            <h1>Albert Bill Jukerberg</h1>
-            <h3>Web Designer</h3>
-            <p>Email: abj@bu.ac.bd | Phone: +8801700000022</p>
-            <p>Address: Dept of CSE, University of Barishal</p>
-        </div>
 
-        <!-- Navigation -->
-        <div class="navbar">
-            <a href="#">About Me</a>
-            <a href="#">Skills</a>
-            <a href="#">Experience</a>
-            <a href="#">Education</a>
-            <a href="#">Achievements</a>
-            <a href="#">Contact</a>
-        </div>
-
-        <!-- About Me Section -->
-        <div class="section about">
-            <h2>About Me</h2>
-            <p>Motivated web developer with 3 years of experience in creating dynamic and responsive websites using HTML, CSS, and JavaScript. Strong ability to learn and adapt to new technologies, with a passion for creating user-friendly designs.</p>
-        </div>
-
-        <!-- Skills Section -->
-        <div class="section skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML5 & CSS3</li>
-                <li>Bootstrap Framework</li>
-                <li>JavaScript & jQuery</li>
-                <li>PHP & MySQL</li>
-                <li>Adobe Photoshop & Illustrator</li>
-            </ul>
-        </div>
-
-        <!-- Experience Section -->
-        <div class="section experience">
-            <h2>Experience</h2>
-            <h3>Senior Software Engineer - Samsung R&D Institute Ltd. (Jan 2022 - Present)</h3>
-            <p>Developed and maintained the company websites, ensuring a smooth user experience across all devices.</p>
-            <h3>Web Developer - ABC Solutions (Aug 2020 - Dec 2021)</h3>
-            <p>Assisted in the development of client websites, focusing on front-end design and functionality.</p>
-            <h3>Intern - Software People (Jun 2019 - Jul 2020)</h3>
-            <p>Worked on various small-scale projects, gaining hands-on experience in web design and development.</p>
-        </div>
-
-        <!-- Education Section -->
-        <div class="section education">
-            <h2>Education</h2>
-            <table>
-                <tr>
-                    <th>Degree</th>
-                    <th>Institution</th>
-                    <th>Year</th>
-                </tr>
-                <tr>
-                    <td>Bachelor of Science in Computer Science</td>
-                    <td>University of Barishal</td>
-                    <td>2016 - 2020</td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Achievements Section -->
-        <div class="section achievements">
-            <h2>Achievements</h2>
-            <ul>
-                <li>First place in University of Barishal coding competition 2019.</li>
-                <li>Employee of the Year - ABC Solutions 2021.</li>
-            </ul>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="section contact">
-            <h2>Contact</h2>
-            <form action="#">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+  <div class="container">
+    <!-- Left Content Section -->
+    <div class="left-content">
+      <h1>E-commerce Website</h1>
+      <p>Support local everything</p>
+      <button class="buy-now-btn">Buy Now</button>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Albert Bill Jukerberg. All rights reserved.</p>
-    </footer>
+    <!-- Middle Image -->
+    <div class="middle-image">
+      <img src="https://via.placeholder.com/300/ff7f7f/333333?text=Img1" alt="Middle Image" id="middleImage">
+    </div>
+
+    <!-- Right Rotating Images -->
+    <div class="right-images">
+      <img src="https://via.placeholder.com/100/ffbf00/333333?text=Img2" alt="Image 2" id="rightImage1">
+      <img src="https://via.placeholder.com/100/7f7fff/333333?text=Img3" alt="Image 3" id="rightImage2">
+      <img src="https://via.placeholder.com/100/7fff7f/333333?text=Img4" alt="Image 4" id="rightImage3">
+      <img src="https://via.placeholder.com/100/ff7f7f/333333?text=Img1" alt="Image 1" id="rightImage4">
+    </div>
+
+    <!-- Labels (Optional to match your design more closely) -->
+    <div class="label label1">Minimalistic</div>
+    <div class="label label2">Super Cozy</div>
+
+  </div>
+
+  <script>
+    // JavaScript for shifting images in a cyclic manner
+    const middleImage = document.getElementById('middleImage');
+    const rightImages = [
+      document.getElementById('rightImage1'),
+      document.getElementById('rightImage2'),
+      document.getElementById('rightImage3'),
+      document.getElementById('rightImage4'),
+    ];
+
+    // Rotate images every 3 seconds
+    setInterval(rotateImages, 3000);
+
+    function rotateImages() {
+      // Store the current middle image's src
+      const middleImageSrc = middleImage.src;
+
+      // Shift right images left, the first right image becomes the middle image
+      middleImage.src = rightImages[0].src;
+
+      // Shift other right images
+      for (let i = 0; i < rightImages.length - 1; i++) {
+        rightImages[i].src = rightImages[i + 1].src;
+      }
+
+      // Set the last right image to the old middle image
+      rightImages[rightImages.length - 1].src = middleImageSrc;
+    }
+  </script>
+
 </body>
 </html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page with Zoom Feature</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Product Image Gallery */
+        .image-gallery {
+            flex: 2;
+            position: relative;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.2); /* Zoom in effect */
+        }
+
+        /* Product Details */
+        .product-details {
+            flex: 3;
+        }
+
+        .product-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #e47911;
+            margin-bottom: 15px;
+        }
+
+        .discount-price {
+            font-size: 22px;
+            color: #ff5733;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .discounted-price {
+            font-size: 22px;
+            color: #22a6b3;
+        }
+
+        .product-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .product-options {
+            margin-bottom: 20px;
+        }
+
+        .product-options select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Add to Cart and Buy Now Buttons */
+        .btn-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ff9f1a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #f39c12;
+        }
+
+        .buy-now-btn {
+            background-color: #ff5733;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #e04b2d;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Product Image Gallery -->
+    <div class="image-gallery">
+        <img id="mainImage" src="image.png" alt="Product Image">
+    </div>
+
+    <!-- Product Details -->
+    <div class="product-details">
+        <!-- Product Title -->
+        <h1 class="product-title">Transformers Toys Heroic Optimus Prime</h1>
+
+        <!-- Product Pricing -->
+        <p class="product-price">
+            <span class="discount-price">$24.99</span>
+            <span class="discounted-price">$22.46</span>
+        </p>
+
+        <!-- Product Description -->
+        <p class="product-description">
+            Experience the classic conversion play of Transformers toys. This 11-inch Optimus Prime figure changes from robot to vehicle in 6 simple steps and is perfect for kids aged 6 and up.
+        </p>
+
+        <!-- Quantity Selector -->
+        <div class="product-options">
+            <label for="quantity">Quantity:</label>
+            <select id="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
+        <!-- Add to Cart & Buy Now Buttons -->
+        <div class="btn-container">
+            <button class="btn">Add to Cart</button>
+            <button class="btn buy-now-btn">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // You can add additional interactivity if needed here
+</script>
+
+</body>
+</html>
