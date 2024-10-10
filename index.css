@@ -1,0 +1,223 @@
+body
+{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container{
+    width: max(60vw,600px);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.imageClass{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid rgb(6, 114, 247);
+
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2vh 0 0 0;
+    
+}
+
+header h2, header h3, header h4{
+    margin: 5px;
+}
+.navBar{
+    background-color: rgba(0, 0, 0, 1);
+    height: 40px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.navBar li{
+    list-style-type: none;
+}
+
+.navBar li a
+{
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+}
+a:hover{
+    scale: 1.1;
+}
+
+.content
+{
+    width: 100%;
+}
+.content h2, .skills h2{
+    /* background-color: red; */
+    border-bottom: 2px solid rgb(137, 135, 135);
+    font-family: 'Times New Roman', Times, serif;
+    animation: fadeInUp 0.8s ease;
+}
+.aboutMe p{
+    /* animation: fadeInUp 0.8s ease; */
+}
+
+.skills{
+    display: flex;
+    flex-direction: column;
+
+}
+.skills li{
+    list-style-type: none;
+    background-color: rgb(247, 246, 246);
+    margin-top: 10px;
+    border-left: 3px solid rgb(145, 178, 245);
+    height: 30px;
+    padding-left: 5px;
+    align-content: center;
+}
+
+.skills li:hover{
+    padding-left: 15px;
+    background-color: rgb(210, 210, 210);
+    font-size: 1.1em;
+    font-weight: bold;
+    border-left: 4px solid rgb(27, 100, 246);
+
+}
+.Experience{
+    display: flex;
+    flex-direction: column;
+    animation: fadeInUp 0.8s ease;
+
+}
+.Experience li{
+    list-style-type: none;
+    background-color: rgb(247, 246, 246);
+    margin-top: 10px;
+    border-left: 3px solid rgb(145, 178, 245);
+    height: 30px;
+    padding-left: 5px;
+    align-content: center;
+}
+
+.Experience li:hover{
+    padding-left: 15px;
+    background-color: rgb(210, 210, 210);
+    font-size: 1.1em;
+    font-weight: bold;
+    border-left: 4px solid rgb(27, 100, 246);
+
+}
+
+table{
+    width: 100%;
+}
+table:hover
+{
+    scale: 1.01;
+    transform: translate(0px,-5px);
+
+}
+
+th{
+    background-color: rgb(247, 246, 246);
+    font-weight: bold;
+}
+
+th,tr,td{
+    border-bottom: 1px solid rgb(193, 190, 190);
+}
+
+th:not(:last-child),td:not(:last-child)
+{
+    border-right: 1px solid rgb(193, 190, 190);
+}
+
+.achivement{
+    display: flex;
+    flex-direction: column;
+
+}
+.achivement li{
+    list-style-type: none;
+    background-color: rgb(247, 246, 246);
+    margin-top: 10px;
+    border-left: 3px solid rgb(145, 178, 245);
+    height: 30px;
+    padding-left: 5px;
+    align-content: center;
+}
+
+.achivement li:hover{
+    padding-left: 15px;
+    background-color: rgb(210, 210, 210);
+    font-size: 1.1em;
+    font-weight: bold;
+    border-left: 4px solid rgb(27, 100, 246);
+}
+
+label{
+    display: inline-block;
+    width: 10%;
+    margin-bottom: 20px;
+    align-items: center;
+    /* background-color: red; */
+}
+
+input,textarea{
+
+    width: 80%;
+    background-color: rgb(247, 246, 246);
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 10px;
+    height: 30px;
+    align-content: center;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(50px,50px);
+    }
+    50%
+    {
+        opacity: 1;
+        transform: translate(50px,0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px,0px);
+    }
+}
+
+button{
+    width: 200px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 15px; 
+    border: none;
+    font-size: 1.2em;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+button:hover{
+    scale: 1.02;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
